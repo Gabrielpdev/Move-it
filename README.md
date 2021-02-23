@@ -1,78 +1,93 @@
-# Example app with styled-components
+<h2 align="center">
+  <img alt="Move-Yourself" title="#Move-Yourself" src=".github/logo-full.svg"/>
+</h2>
+  
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Gabrielpdev/Move-Yourself?color=%2304D361">
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/zeit/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Gabrielpdev/Move-Yourself">
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs/advanced-features/custom-app) component.
+  	
+  <a href="https://www.linkedin.com/in/gabriel-pereira-oliveira-78b1801ab/">
+    <img alt="Made by Gabrielpdev" src="https://img.shields.io/badge/made%20by-Gabrielpdev-%2304D361">
+  </a>
+	
+  
+  <a href="https://github.com/Gabrielpdev/Move-Yourself/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Gabrielpdev/Move-Yourself">
+  </a>
 
-## Deploy your own
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+   <a href="https://github.com/Gabrielpdev/Move-Yourself/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/Gabrielpdev/Move-Yourself?style=social">
+  </a>
+</p>
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+<h2 align="center">
+    <img alt="Move-Yourself" title="#Move-Yourself" src=".github/Move-Yourself-responsivo.png" width="350px" />
+</h2>
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
 
-## How to use
+## 📝 Conteúdo
+<p align="center">
+<a href="#about">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#getting_started">Iniciando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#built_using">Tecnologias Utilizadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#roadmap">Metas de desenvolvimento</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#contribute">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+</p>
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
-```bash
-npx create-next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
+## 🧐 Sobre <a name = "about"></a>
+
+Move-Yourself é uma Aplicação feita durante a **NWL 4.0** oferecido pela [Rocketseat] :rocket:.<br/> 
+A aplicação visa ajudar pessoas que ficam muito tempo na frente do computador e se esquecem de tempo em tempo
+se alongar. Usando do método de Pomodoro, lembrando o usuário a cada período de tempo realizar uma atividade
+que ao ser realizada, o usuário ganha experiência, subindo seu level<br/> 
+
+
+<span align="center">
+	<h2>Demo</h2>
+	<img alt="Move-Yourself" title="#Move-Yourself" src=".github/Move-Yourself.gif" width="680px"  />
+	<img alt="Move-Yourself" title="#Move-Yourself" src=".github/Move-Yourself-tablet.gif" height="300px" margin="10px" />
+  <a href="#">Link</a>
+</span>
+
+
+## 🏁 Iniciando <a name = "getting_started"></a>
+
+Instruções de como acessar as rotas e instalação.
+
+### ⚒ Instalando <a name = "installing"></a>
+
 ```
+# 💻 Iniciando
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+$ cd web
+$ yarn install
+$ yarn start
 
-### Try it on CodeSandbox
-
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
-
-### Notes
-
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
-
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
-
-**components/StyledLink.js**
-
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
-
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
-
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    color: #40a9ff;
-  }
-
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
 ```
+## ⛏️ Tecnologias Utilizadas <a name = "built_using"></a>
 
-**pages/index.js**
+As seguintes ferramentas foram usadas na construção do projeto:
+- 🔵 [TypeScript][typescript]
+- ⚛️ [React][reactjs]
+- 🔼 [NextJs][next]
+- 💅 [Styled-components][styled-components]
 
-```javascript
-import StyledLink from '../components/StyledLink'
+## 🤔 Como contribuir <a name = "contribute"></a>
 
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
-```
+- Faça um fork desse repositório;
+- Cria uma branch com a sua feature: `git checkout -b minha-feature`;
+- Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
+- Faça push para a sua branch: `git push origin minha-feature`.
 
-</details>
+Feito com ❤️ por Gabriel Pereira 👋🏽 [Entre em contato!](https://www.linkedin.com/in/gabriel-pereira-oliveira-78b1801ab/)
+
+[next]: https://nextjs.org/
+[typescript]: https://www.typescriptlang.org/
+[reactjs]: https://reactjs.org
+[Rocketseat]:https://github.com/Rocketseat
+[styled-components]:https://styled-components.com/
+
