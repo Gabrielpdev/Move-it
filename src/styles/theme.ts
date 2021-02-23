@@ -14,6 +14,7 @@ export const light = {
     blueTwitter: '#2aa9e0',
 
     backgroundLight: '#fff',
+    titleTimer: '#2e384d',
     textDark: '#666666',
     titleLight: '#848FFF',
     titleLighten: '#B2B9FF',
@@ -36,6 +37,7 @@ export const dark = {
     blueTwitter: '#2aa9e0',
 
     backgroundLight: '#273248',
+    titleTimer: '#dcdde0',
     textDark: '#666666',
     titleLight: '#848FFF',
     titleLighten: '#B2B9FF',

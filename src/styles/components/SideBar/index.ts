@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.aside`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
