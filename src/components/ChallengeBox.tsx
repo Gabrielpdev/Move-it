@@ -4,7 +4,7 @@ import { useProvider } from '../contexts/ChallengesContext';
 import { Container, ChallengeActive, ChallengeNotActive,FailedButton, SucceededButton } from '../styles/components/ChallengeBox'
 
 export const ChallengeBox: React.FC = () => {
-  const { activeChallenge, resetChallenge } = useProvider();
+  const { activeChallenge, resetChallenge, completeChallenge } = useProvider();
 
   return (
     <Container>
@@ -20,7 +20,7 @@ export const ChallengeBox: React.FC = () => {
 
           <footer>
             <FailedButton type="button" onClick={resetChallenge}>Falhei</FailedButton>
-            <SucceededButton type="button" onClick={() => {}}>Completei</SucceededButton>
+            <SucceededButton type="button" onClick={completeChallenge}>Completei</SucceededButton>
           </footer>
         </ChallengeActive>
       ) : (

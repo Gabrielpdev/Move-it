@@ -16,6 +16,7 @@ interface ProviderContextData {
   levelUp(): void;
   startNewChallenge(): void;
   resetChallenge(): void;
+  completeChallenge(): void;
 }
 
 export const ChallengesContext = createContext({} as ProviderContextData);
@@ -45,6 +46,11 @@ export const ChallengesProvider: React.FC = ({ children }) => {
     setActiveChallenge(null);
   } 
 
+  function completeChallenge() {
+    setChallengesCompleted(challengesCompleted + 1);
+    setActiveChallenge(null);
+  } 
+
   return (
     <ChallengesContext.Provider value={{ 
       level, 
@@ -54,7 +60,8 @@ export const ChallengesProvider: React.FC = ({ children }) => {
       challengesCompleted, 
       activeChallenge, 
       startNewChallenge,
-      resetChallenge 
+      resetChallenge,
+      completeChallenge
     }}>
       {children}
     </ChallengesContext.Provider>

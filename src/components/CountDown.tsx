@@ -6,7 +6,7 @@ import { CountDownContainer, CountDownButton, StopCountDownButton, FinishedCount
 let countdownTimeout: NodeJS.Timeout;
 
 export const CountDown: React.FC = () => {
-  const { startNewChallenge } = useProvider();
+  const { startNewChallenge, activeChallenge } = useProvider();
 
   const [ time, setTime ] = useState(.05 * 60);
   const [ isActive, setIsActive ] = useState(false);
@@ -30,6 +30,15 @@ export const CountDown: React.FC = () => {
     }
   },[isActive, time])
 
+  useEffect(() => {
+    setHasFinished(!!activeChallenge)
+    setIsActive(!!activeChallenge)
+
+    if(!activeChallenge){
+      setTime(.05 * 60);
+    }
+  },[activeChallenge])
+
   function startCountDown() {
     setIsActive(true);
   }
@@ -37,7 +46,7 @@ export const CountDown: React.FC = () => {
   function resetCountDown() {
     clearTimeout(countdownTimeout);
     setIsActive(false);
-    setTime(.1 * 60);
+    setTime(.05 * 60);
   }
 
   return (
