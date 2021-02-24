@@ -1,7 +1,7 @@
 import React from 'react'
 import { FiSun, FiMoon } from "react-icons/fi";
 
-import { useTheme } from '../hooks';
+import { useTheme } from '../contexts/theme';
 import { Container } from '../styles/components/SideBar'
 
 export const SideBar: React.FC = () => {

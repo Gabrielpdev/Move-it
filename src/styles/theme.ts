@@ -16,6 +16,7 @@ export const light = {
     backgroundLight: '#fff',
     titleTimer: '#2e384d',
     textDark: '#666666',
+    titleButton: '#2e384d',
     titleLight: '#848FFF',
     titleLighten: '#B2B9FF',
   }
@@ -39,6 +40,7 @@ export const dark = {
     backgroundLight: '#273248',
     titleTimer: '#dcdde0',
     textDark: '#666666',
+    titleButton: '#dcdde0',
     titleLight: '#848FFF',
     titleLighten: '#B2B9FF',
   },

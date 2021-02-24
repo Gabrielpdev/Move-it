@@ -1,12 +1,15 @@
 import { GlobalStyle } from '../styles/global';
-import { ThemesProvider } from '../hooks';
+import { ThemesProvider } from '../contexts/theme';
+import { ChallengesProvider } from '../contexts/ChallengesContext';
 
 export default function App({ Component, pageProps }) {
   return (
     <>
       <ThemesProvider>
-        <GlobalStyle />
-        <Component {...pageProps}/>
+        <ChallengesProvider>
+          <GlobalStyle />
+          <Component {...pageProps}/>
+        </ChallengesProvider>
       </ThemesProvider>
     </>
   )

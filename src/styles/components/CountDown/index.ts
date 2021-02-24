@@ -62,3 +62,47 @@ export const CountDownButton = styled.button`
   }
 `;
 
+
+export const StopCountDownButton = styled.button`
+  width: 100%;
+  height: 5rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 5px;
+  background: ${({ theme }) => theme.colors.backgroundLight};
+  color: ${({ theme }) => theme.colors.titleButton};
+
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  transition: background-color 0.2s ease;
+
+  &:hover{
+    background: ${({ theme }) => theme.colors.red};
+    color: ${({ theme }) => theme.colors.white};
+  }
+`;
+
+export const FinishedCountDownButton = styled.button`
+  width: 100%;
+  height: 5rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 5px;
+  background: ${({ theme }) => theme.colors.backgroundLight};
+  border-bottom: 5px solid ${({ theme }) => theme.colors.green};
+  color: ${({ theme }) => theme.colors.titleButton};
+
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  cursor: default;
+`;

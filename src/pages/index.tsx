@@ -8,6 +8,7 @@ import { CompletedChallenges } from '../components/CompletedChallenges'
 import { CountDown } from '../components/CountDown'
 
 import { Container, LeftSide, RightSide } from '../styles/pages'
+import { ChallengeBox } from '../components/ChallengeBox'
 
 const Home: React.FC = () => {
 
@@ -27,7 +28,7 @@ const Home: React.FC = () => {
         </LeftSide>
         
         <RightSide>
-
+          <ChallengeBox />
         </RightSide>
       </section>
     </Container>
