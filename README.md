@@ -33,7 +33,6 @@
 <a href="#about">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#getting_started">Iniciando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#built_using">Tecnologias Utilizadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-<a href="#roadmap">Metas de desenvolvimento</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#contribute">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
@@ -49,7 +48,6 @@ que ao ser realizada, o usuário ganha experiência, subindo seu level<br/>
 <span align="center">
 	<h2>Demo</h2>
 	<img alt="Move-Yourself" title="#Move-Yourself" src=".github/Move-Yourself.gif" width="680px"  />
-	<img alt="Move-Yourself" title="#Move-Yourself" src=".github/Move-Yourself-tablet.gif" height="300px" margin="10px" />
   <a href="#">Link</a>
 </span>
 
