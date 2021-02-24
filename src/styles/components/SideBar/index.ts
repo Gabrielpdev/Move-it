@@ -12,9 +12,13 @@ export const Container = styled.aside`
 
   height: 100vh;
   width: 30px;
-  padding: 25px;
+  padding: 25px 40px;
 
   background: ${({ theme }) => theme.colors.backgroundLight};
+
+  > svg path{
+    fill: ${({ theme }) => theme.colors.logoColor};
+  }
 
   > div button{
     &:not(:first-child){

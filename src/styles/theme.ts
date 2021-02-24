@@ -19,6 +19,7 @@ export const light = {
     titleButton: '#2e384d',
     titleLight: '#848FFF',
     titleLighten: '#B2B9FF',
+    logoColor: '#5965e0',
   }
 }
 
@@ -43,5 +44,6 @@ export const dark = {
     titleButton: '#dcdde0',
     titleLight: '#848FFF',
     titleLighten: '#B2B9FF',
+    logoColor: '#fff',
   },
 }
