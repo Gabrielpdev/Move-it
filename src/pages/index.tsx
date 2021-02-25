@@ -47,7 +47,7 @@ const Index: React.FC = () => {
             </TitleContainer>
 
             <LoginContainer onSubmit={handleUsername}>
-              <input value={username} onChange={(e) => setUsername(e.target.value)} />
+              <input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Digite seu usuário"/>
               <button type="submit" onClick={handleUsername}>{` -> `}</button>
             </LoginContainer>
           </div>

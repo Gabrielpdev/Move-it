@@ -84,6 +84,11 @@ export const LoginContainer = styled.form`
     border-radius: 5px;
 
     color: ${({theme}) => theme.colors.white};
+
+    &::placeholder{
+      color: ${({theme}) => theme.colors.white};
+      opacity: 0.5;
+    }
   }
 
   button {
