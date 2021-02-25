@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import { Container } from '../styles/components/Profile'
+import { FiLogOut } from "react-icons/fi";
 
 interface IUserGithub {
   name: string
@@ -17,6 +19,10 @@ export default function Profile(user: IUserGithub)  {
           Level 1
         </p>
       </div>
+      
+      <Link href='/'>
+        <FiLogOut size={40} />  
+      </Link>
     </Container>
   )
 }

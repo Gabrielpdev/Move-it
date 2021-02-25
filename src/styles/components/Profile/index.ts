@@ -28,4 +28,14 @@ export const Container = styled.div`
      }
    }
   }
+
+  svg {
+    margin-left: auto;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.titleTimer};
+
+    &:hover{
+      color: ${({ theme }) => theme.colors.red};
+    }
+  }
 `;
