@@ -13,6 +13,7 @@ export const light = {
     blueDark: '#4953b8',
     blueTwitter: '#2aa9e0',
 
+    backgroundIndex: '#5964e0',
     backgroundLight: '#fff',
     titleTimer: '#2e384d',
     textDark: '#666666',
@@ -20,6 +21,7 @@ export const light = {
     titleLight: '#848FFF',
     titleLighten: '#B2B9FF',
     logoColor: '#5965e0',
+    inputBackground: '#4953b8',
   }
 }
 
@@ -38,6 +40,7 @@ export const dark = {
     blueDark: '#4953b8',
     blueTwitter: '#2aa9e0',
 
+    backgroundIndex: '#0B1529',
     backgroundLight: '#273248',
     titleTimer: '#dcdde0',
     textDark: '#666666',
@@ -45,5 +48,6 @@ export const dark = {
     titleLight: '#848FFF',
     titleLighten: '#B2B9FF',
     logoColor: '#fff',
+    inputBackground: 'rgba( 255, 255, 255, 0.45)',
   },
 }
