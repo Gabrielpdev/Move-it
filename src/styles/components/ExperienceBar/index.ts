@@ -28,4 +28,8 @@ export const Container = styled.header`
       transform: translateX( -50% );
     }
   }
+
+  @media (max-width: 800px){
+    margin-top: 4rem;
+  }
 `;

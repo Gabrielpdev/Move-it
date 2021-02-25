@@ -19,11 +19,19 @@ export const Container = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 6.25rem;
     align-content: center;
+  
+    @media (max-width: 520px){
+      position: relative;
+
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
   }
 `
 
 export const LeftSide = styled.div`
   position: relative;
+
   button{
     position: absolute;
     bottom: 0;
@@ -31,7 +39,17 @@ export const LeftSide = styled.div`
     border: 0;
     background: transparent;
     color: ${({ theme }) => theme.colors.white};
+
   }
+    @media (max-width: 520px){
+      position: static;
+      button{
+        left: unset;
+        right: 0;
+        top: 0;
+        bottom: unset;
+      }
+    }
 `;
 
 export const RightSide = styled.div`
@@ -48,6 +66,15 @@ export const RightSide = styled.div`
       font-size: 3rem;
       font-weight: 500;
       color: ${({theme}) => theme.colors.white };
+    }
+  }
+
+  @media (max-width: 520px){
+    width: 85vw;
+    >div{
+      strong {
+        font-size: 2rem;
+      }
     }
   }
 `;
@@ -67,6 +94,12 @@ export const TitleContainer = styled.div`
     font-size: 1.4rem;
     font-weight: 500;
     color: ${({theme}) => theme.colors.white };
+  }
+
+  @media (max-width: 520px){
+    span {
+    font-size: 1.3rem;
+  }
   }
 `;
 
@@ -99,5 +132,11 @@ export const LoginContainer = styled.form`
     color: ${({theme}) => theme.colors.white };
     border-radius: 5px;
     width: max-content;
+  }
+
+  @media (max-width: 520px){
+    input {
+      width: 78%;
+    }
   }
 `;

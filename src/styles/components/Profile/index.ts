@@ -38,4 +38,10 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.colors.red};
     }
   }
+
+  @media (max-width: 800px){    
+    svg {
+      width: 2.2rem;
+    }
+  }
 `;

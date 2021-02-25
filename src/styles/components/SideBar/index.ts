@@ -11,13 +11,15 @@ export const Container = styled.aside`
   top: 0;
 
   height: 100vh;
-  width: 30px;
-  padding: 25px 40px;
+  width: 3rem;
+  padding: 2.3rem 2.2rem;
 
   background: ${({ theme }) => theme.colors.backgroundLight};
 
-  > svg path{
-    fill: ${({ theme }) => theme.colors.logoColor};
+  > svg {
+    path{
+      fill: ${({ theme }) => theme.colors.logoColor};
+    }
   }
 
   > div button{
@@ -35,4 +37,25 @@ export const Container = styled.aside`
       color: ${({ theme }) => theme.colors.text};
     }
   }
+
+  @media (max-width: 800px){    
+    flex-direction: row;
+
+    padding: 2rem;
+    left: unset;
+    right: 0;
+    top: 0;
+
+    width: 100%;
+    height: 3rem;
+    
+    svg {
+      width: 2.2rem;
+    }
+  }
+
+  /* @media (max-width: 542px){
+    padding: 2.3rem 2rem;
+    
+  } */
 `;
