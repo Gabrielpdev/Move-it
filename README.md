@@ -24,7 +24,7 @@
 </p>
 
 <h2 align="center">
-    <img alt="Move-Yourself" title="#Move-Yourself" src=".github/Move-Yourself-responsivo.png" width="350px" />
+    <img alt="Move-Yourself" title="#Move-Yourself" src=".github/Capa.png" width="350px" />
 </h2>
 
 
