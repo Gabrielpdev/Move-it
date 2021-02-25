@@ -11,6 +11,7 @@ import { CountDown } from '../components/CountDown'
 
 import { Container, LeftSide, RightSide } from '../styles/pages/home'
 import { ChallengeBox } from '../components/ChallengeBox'
+import { CountDownProvider } from '../contexts/CountDownContext';
 
 interface IUserGithub {
   name: string
@@ -25,18 +26,20 @@ const Home: React.FC<IUserGithub> = (user) => {
       </Head>
       <SideBar />
       <ExperienceBar />
-
-      <section>
-        <LeftSide>
-          <Profile {...user} />
-          <CompletedChallenges />
-          <CountDown />
-        </LeftSide>
-        
-        <RightSide>
-          <ChallengeBox />
-        </RightSide>
-      </section>
+    
+      <CountDownProvider>
+        <section>
+          <LeftSide>
+            <Profile {...user} />
+            <CompletedChallenges />
+            <CountDown />
+          </LeftSide>
+          
+          <RightSide>
+            <ChallengeBox />
+          </RightSide>
+        </section>
+      </CountDownProvider>
     </Container>
   )
 }

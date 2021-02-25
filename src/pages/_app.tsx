@@ -7,10 +7,10 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <ThemesProvider>
-          <ChallengesProvider>
-            <GlobalStyle />
-            <Component {...pageProps}/>
-          </ChallengesProvider>
+        <ChallengesProvider>
+          <GlobalStyle />
+          <Component {...pageProps}/>
+        </ChallengesProvider>
       </ThemesProvider>
     </>
   )

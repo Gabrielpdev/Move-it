@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Container } from '../styles/components/Profile'
 import { FiLogOut } from "react-icons/fi";
+import { useProvider } from '../contexts/ChallengesContext';
 
 interface IUserGithub {
   name: string
@@ -8,6 +9,8 @@ interface IUserGithub {
 }
 
 export default function Profile(user: IUserGithub)  {
+  const { level } = useProvider();
+
   return (
     <Container>
       <img src={user?.avatar_url} alt={user?.name}/>
@@ -16,7 +19,7 @@ export default function Profile(user: IUserGithub)  {
         <strong>{user?.name}</strong>
         <p>
           <img src="icons/level.svg" alt="Level"/>
-          Level 1
+          Level {level}
         </p>
       </div>
       
