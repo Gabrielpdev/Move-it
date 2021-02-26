@@ -4,12 +4,16 @@ import styled from 'styled-components';
 export const Container = styled.div`
   height: 100vh;
   width: 100vw;
-  background: ${({theme}) => theme.colors.backgroundIndex };
   /* margin: 0 auto; */
   padding: 2.5rem 2rem;
 
   display: flex;
   flex-direction: column;
+  
+  background: url('/background-logo.png') no-repeat;
+  background-size: contain;
+  background-position: center left;
+  background-color: ${({theme}) => theme.colors.backgroundIndex };
 
   section {
     max-width: 992px;
@@ -19,9 +23,11 @@ export const Container = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 6.25rem;
     align-content: center;
-  
+    position: relative;
+
+    
+    
     @media (max-width: 520px){
-      position: relative;
 
       grid-template-columns: 1fr;
       gap: 0;
@@ -30,26 +36,17 @@ export const Container = styled.div`
 `
 
 export const LeftSide = styled.div`
-  position: relative;
+  /* position: relative; */
 
   button{
     position: absolute;
-    bottom: 0;
-    left: 0;
+    right: 0;
+    top: 0;
     border: 0;
     background: transparent;
     color: ${({ theme }) => theme.colors.white};
-
+   
   }
-    @media (max-width: 520px){
-      position: static;
-      button{
-        left: unset;
-        right: 0;
-        top: 0;
-        bottom: unset;
-      }
-    }
 `;
 
 export const RightSide = styled.div`
