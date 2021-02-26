@@ -53,9 +53,4 @@ export const Container = styled.aside`
       width: 2.2rem;
     }
   }
-
-  /* @media (max-width: 542px){
-    padding: 2.3rem 2rem;
-    
-  } */
 `;
