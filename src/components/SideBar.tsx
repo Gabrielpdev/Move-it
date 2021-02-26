@@ -1,7 +1,8 @@
 import React from 'react'
 import useSound from 'use-sound'
+import Link from 'next/link';
 
-import { FiSun, FiMoon } from "react-icons/fi";
+import { FiSun, FiMoon, FiHome, FiAward } from "react-icons/fi";
 
 import { useTheme } from '../contexts/theme';
 import { Container } from '../styles/components/SideBar'
@@ -28,12 +29,16 @@ export const SideBar: React.FC = () => {
 
       
       <div>
-        {/* <button type="button" onClick={() => {}}>
-          <FiSun size={30} />
-        </button>
-        <button type="button" onClick={() => {}}>
-          <FiMoon size={30} />
-        </button> */}
+        <Link href={'/'}>
+          <a>
+            <FiHome size={30} />
+          </a>
+        </Link>
+        <Link href={'/gabrielpdev'}>
+          <a>
+            <FiAward size={30} />
+          </a>
+        </Link>
       </div>
       
       <button type="button" onClick={handleClick}>

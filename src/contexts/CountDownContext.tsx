@@ -14,8 +14,8 @@ export const CountDownContext = createContext({} as CountDownContextData);
 
 let countdownTimeout: NodeJS.Timeout;
 
-export const CountDownProvider: React.FC = ({ children }) => {
-  const { startNewChallenge, activeChallenge } = useProvider();
+export const CountDownProvider: React.FC = ({ children }) => { 
+  const { startNewChallenge } = useProvider();
 
   const [ time, setTime ] = useState(.05 * 60);
   const [ isActive, setIsActive ] = useState(false);

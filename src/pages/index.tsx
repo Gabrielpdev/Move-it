@@ -7,7 +7,8 @@ import { useTheme } from '../contexts/theme';
 import turnOnSound from '../../public/sounds/turn-on.mp3';
 import turnOffSound from '../../public/sounds/turn-off.mp3';
 
-import { Container, LeftSide, RightSide, LoginContainer, TitleContainer } from '../styles/pages'
+import { Container, LeftSide, RightSide, TitleContainer } from '../styles/pages'
+import Input from '../components/Input';
 
 const Index: React.FC = () => {
   const { push } = useRouter();
@@ -24,7 +25,9 @@ const Index: React.FC = () => {
 
   function handleUsername(e){
     e.preventDefault();
-    push(`/${username}`);
+    if(username){
+      push(`/${username}`);
+    }
   }
 
   return (
@@ -46,10 +49,13 @@ const Index: React.FC = () => {
               <span>Faça login com seu Github para começar</span>
             </TitleContainer>
 
-            <LoginContainer onSubmit={handleUsername}>
-              <input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Digite seu usuário"/>
-              <button type="submit" onClick={handleUsername}>{` -> `}</button>
-            </LoginContainer>
+            <form onSubmit={handleUsername}>
+              <Input 
+                placeholder="Digite seu username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </form>
           </div>
         </RightSide>
       </section>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.aside`
+export const Container = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,9 +22,29 @@ export const Container = styled.aside`
     }
   }
 
-  > div button{
+  > div  a{
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    
     &:not(:first-child){
-      margin-top: 10px;
+      margin-top: 16px;
+    }
+
+    &.active{
+      &::before{
+        content: "";
+        background: ${({ theme }) => theme.colors.logoColor};
+        border-radius: 0px 5px 5px 0px;
+        position: absolute;
+        left: -1.2rem;
+        width: 4px;
+        height: 100%;
+
+        @media (max-width: 1366px){    
+          left: -1rem;
+        }
+      }
     }
   }
 

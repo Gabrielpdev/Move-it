@@ -18,6 +18,7 @@ export const Container = styled.header`
 
     div {
       height: 4px;
+      width:0;
       border-radius: 4px;
       background: ${({ theme }) => theme.colors.green};
     }

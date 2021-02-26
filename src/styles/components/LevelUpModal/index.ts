@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Overlay = styled.header`
-  background: rgba(242, 243, 245, 0.8);
+  background: ${({ theme }) => theme.colors.backgroundModal};
+  /* background: rgba(242, 243, 245, 0.8); */
   position: fixed;
   top: 0;
   bottom: 0;
@@ -14,7 +15,7 @@ export const Overlay = styled.header`
 `;
 
 export const Container = styled.header`
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.backgroundModalContent};
   width: 100%;
   max-width:400px;
   padding: 2rem 3rem;
@@ -30,6 +31,8 @@ export const Container = styled.header`
     color: ${({ theme }) => theme.colors.blue};
     background: url('/icons/levelup.svg') no-repeat center;
     background-size: contain;
+
+    text-shadow: 0px 10px 16px rgba(89, 101, 224, 0.3);
   }
 
   strong{
