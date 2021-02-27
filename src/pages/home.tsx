@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head  from 'next/head'
 import { GetServerSideProps } from 'next';
 
@@ -8,10 +8,12 @@ import Profile from '../components/Profile'
 import { CompletedChallenges } from '../components/CompletedChallenges'
 import { CountDown } from '../components/CountDown'
 
-import { Container, LeftSide, RightSide } from '../styles/pages/home'
 import { ChallengeBox } from '../components/ChallengeBox'
 import { CountDownProvider } from '../contexts/CountDownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
+import { useSession } from '../contexts/SessionContext';
+
+import { Container, LeftSide, RightSide } from '../styles/pages/home'
 
 interface IUserGithub {
   name: string
@@ -25,7 +27,7 @@ interface IProps {
 }
 
 const Home: React.FC<IProps> = (props) => {
-  const { user } = props;
+  const { user } = useSession();
 
   return (
     <ChallengesProvider {...props}>
@@ -56,18 +58,14 @@ const Home: React.FC<IProps> = (props) => {
 
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { username } = ctx.params;
-  const response = await fetch(`https://api.github.com/users/${username}`);
-  const user = await response.json();
-
-  const {level, currentExperience, challengesCompleted} = ctx.req.cookies;
+  const {user} =  await ctx.req.cookies;
+  const userFormatted = JSON.parse(user)
 
   return {
-    props: { 
-      user, 
-      level: Number(level), 
-      currentExperience: Number(currentExperience), 
-      challengesCompleted: Number(challengesCompleted),
+    props: {
+      level: Number(userFormatted.level), 
+      currentExperience: Number(userFormatted.currentExperience), 
+      challengesCompleted: Number(userFormatted.challengesCompleted),
     }
   }
 }

@@ -2,9 +2,11 @@ import { createContext, ReactNode, useContext, useEffect, useState } from 'react
 import useSound from 'use-sound';
 import challenges from '../../challenges.json';
 import Cookies from 'js-cookie';
+import axios from 'axios';
 
 import notifications from '../../public/sounds/notification.mp3';
 import LevelUpModal from '../components/LevelUpModal';
+import { useSession } from './SessionContext';
 interface Challenge {
   type: 'body' | 'eye';
   description: string;
@@ -23,8 +25,16 @@ interface ProviderContextData {
   completeChallenge(): void;
   closeLevelUpModal(): void;
 }
-interface ChallengesProviderPorps {
+interface ChallengesProviderProps {
   children: ReactNode
+  user: {
+    username: string,
+    level: number,
+    currentExperience: number,
+    challengesCompleted: number,
+    name: string
+    avatar_url: string
+  }
   level: number
   currentExperience: number 
   challengesCompleted: number
@@ -32,7 +42,8 @@ interface ChallengesProviderPorps {
 
 export const ChallengesContext = createContext({} as ProviderContextData);
 
-export const ChallengesProvider: React.FC = ({ children, ...rest }: ChallengesProviderPorps) => {
+export const ChallengesProvider: React.FC = ({ children, ...rest }: ChallengesProviderProps) => {
+  const { user, singIn } = useSession();
   const [level, setLevel] = useState(rest.level ?? 1);
 
   const [play] = useSound(notifications)
@@ -49,10 +60,16 @@ export const ChallengesProvider: React.FC = ({ children, ...rest }: ChallengesPr
   },[])
 
   useEffect(() => {
-    Cookies.set("level", String(level))
-    Cookies.set("currentExperience", String(currentExperience))
-    Cookies.set("challengesCompleted", String(challengesCompleted))
-  },[level, currentExperience, challengesCompleted])
+    singIn(user.username).then(() => {
+      const formattedUser = {
+        level,
+        currentExperience,
+        challengesCompleted,
+        ...user,
+      }
+      Cookies.set("user", JSON.stringify(formattedUser))
+    })
+  },[level, currentExperience, challengesCompleted, user])
 
   function levelUp() {
     setLevel(level + 1);

@@ -9,9 +9,11 @@ import turnOffSound from '../../public/sounds/turn-off.mp3';
 
 import { Container, LeftSide, RightSide, TitleContainer } from '../styles/pages'
 import Input from '../components/Input';
+import { useSession } from '../contexts/SessionContext';
 
 const Index: React.FC = () => {
   const { push } = useRouter();
+  const { singIn } = useSession();
   const {theme, ToggleTheme} = useTheme();
 
   const [username, setUsername]= useState('');
@@ -23,10 +25,11 @@ const Index: React.FC = () => {
     play()
   }
 
-  function handleUsername(e){
+  async function handleUsername(e){
     e.preventDefault();
     if(username){
-      push(`/${username}`);
+      await singIn(username)
+      push(`/home`);
     }
   }
 

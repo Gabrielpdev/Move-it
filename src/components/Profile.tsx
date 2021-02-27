@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Container } from '../styles/components/Profile'
 import { FiLogOut } from "react-icons/fi";
 import { useProvider } from '../contexts/ChallengesContext';
+import { useSession } from '../contexts/SessionContext';
 
 interface IUserGithub {
   name: string
@@ -10,6 +11,7 @@ interface IUserGithub {
 
 export default function Profile(user: IUserGithub)  {
   const { level } = useProvider();
+  const { singOut } = useSession();
 
   return (
     <Container>
@@ -23,9 +25,9 @@ export default function Profile(user: IUserGithub)  {
         </p>
       </div>
       
-      <Link href='/'>
+      <button type='button' onClick={() => singOut()}>
         <FiLogOut size={40} />  
-      </Link>
+      </button>
     </Container>
   )
 }
