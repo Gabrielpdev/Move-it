@@ -24,7 +24,7 @@ async function connectToDatabase(uri: string){
 }
 
 export default async function SearchUser(req: NowRequest, res: NowResponse){
-  const { username } = req.body;
+  const { username } = req.query;
 
   try{
     const db = await connectToDatabase(process.env.MONOGODB_URL);
@@ -37,7 +37,7 @@ export default async function SearchUser(req: NowRequest, res: NowResponse){
       return res.status(200).json(userExists);
     }
   
-    return res.status(400).json({ error : "user does not exist"});
+    return res.status(204).json({ message : "user does not exist"});
   }catch(err){
     return res.status(400).json({
       message: err.message || "Unexpected error."

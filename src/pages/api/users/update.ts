@@ -23,14 +23,18 @@ async function connectToDatabase(uri: string){
   return db;
 }
 
-export default async function CreateUser(req: NowRequest, res: NowResponse){
-  const { data } = req.body;
+export default async function UpdateUser(req: NowRequest, res: NowResponse){
+  const { username, data } = req.body;
 
   const db = await connectToDatabase(process.env.MONOGODB_URL);
 
   const collection = db.collection('data')
-
-  await collection.insertOne( data )
-
-  return res.status(201).json({message: "User created"});
+  
+  const user = await collection.findOneAndUpdate(
+    { username },
+    { $set: data },
+    { returnOriginal: false },
+  );
+  
+  return res.status(200).json(user);
 }

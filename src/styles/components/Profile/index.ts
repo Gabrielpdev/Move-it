@@ -29,7 +29,9 @@ export const Container = styled.div`
    }
   }
 
-  svg {
+  button {
+    background: transparent;
+    border: 0;
     margin-left: auto;
     cursor: pointer;
     color: ${({ theme }) => theme.colors.titleTimer};
@@ -40,7 +42,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: 800px){    
-    svg {
+    button {
       width: 2.2rem;
     }
   }

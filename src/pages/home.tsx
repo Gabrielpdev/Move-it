@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import Router from 'next/router';
 import Head  from 'next/head'
 import { GetServerSideProps } from 'next';
 
@@ -11,29 +12,23 @@ import { CountDown } from '../components/CountDown'
 import { ChallengeBox } from '../components/ChallengeBox'
 import { CountDownProvider } from '../contexts/CountDownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
-import { useSession } from '../contexts/SessionContext';
 
 import { Container, LeftSide, RightSide } from '../styles/pages/home'
-
-interface IUserGithub {
+interface IProps {
+  username: string
   name: string
   avatar_url: string
-}
-interface IProps {
-  user: IUserGithub
   level: number
   currentExperience: number 
   challengesCompleted: number
 }
 
 const Home: React.FC<IProps> = (props) => {
-  const { user } = useSession();
-
   return (
     <ChallengesProvider {...props}>
       <Container>
         <Head>
-          <title>Início | Move YourSelf</title>
+          <title>Home | Move YourSelf</title>
         </Head>
         <SideBar />
         <ExperienceBar />
@@ -41,7 +36,7 @@ const Home: React.FC<IProps> = (props) => {
         <CountDownProvider>
           <section>
             <LeftSide>
-              <Profile {...user} />
+              <Profile {...props} />
               <CompletedChallenges />
               <CountDown />
             </LeftSide>
@@ -59,15 +54,22 @@ const Home: React.FC<IProps> = (props) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const {user} =  await ctx.req.cookies;
-  const userFormatted = JSON.parse(user)
 
-  return {
-    props: {
-      level: Number(userFormatted.level), 
-      currentExperience: Number(userFormatted.currentExperience), 
-      challengesCompleted: Number(userFormatted.challengesCompleted),
+  if (!user) {
+    if(typeof window === 'undefined'){
+      ctx.res.writeHead(302, { Location: '/' })
+      ctx.res.end()
+    }else{
+      Router.push('/')
     }
-  }
+  }else{
+    const userFormatted = JSON.parse(user)
+    return {
+      props: {
+        ...userFormatted
+      }
+    }
+  };
 }
 
 export default Home;

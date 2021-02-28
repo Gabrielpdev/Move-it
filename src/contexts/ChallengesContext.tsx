@@ -2,7 +2,6 @@ import { createContext, ReactNode, useContext, useEffect, useState } from 'react
 import useSound from 'use-sound';
 import challenges from '../../challenges.json';
 import Cookies from 'js-cookie';
-import axios from 'axios';
 
 import notifications from '../../public/sounds/notification.mp3';
 import LevelUpModal from '../components/LevelUpModal';
@@ -27,23 +26,18 @@ interface ProviderContextData {
 }
 interface ChallengesProviderProps {
   children: ReactNode
-  user: {
-    username: string,
-    level: number,
-    currentExperience: number,
-    challengesCompleted: number,
-    name: string
-    avatar_url: string
-  }
-  level: number
-  currentExperience: number 
-  challengesCompleted: number
+  username: string,
+  level: number,
+  currentExperience: number,
+  challengesCompleted: number,
+  name: string
+  avatar_url: string
 }
 
 export const ChallengesContext = createContext({} as ProviderContextData);
 
 export const ChallengesProvider: React.FC = ({ children, ...rest }: ChallengesProviderProps) => {
-  const { user, singIn } = useSession();
+  const { user, updateUser } = useSession();
   const [level, setLevel] = useState(rest.level ?? 1);
 
   const [play] = useSound(notifications)
@@ -60,16 +54,20 @@ export const ChallengesProvider: React.FC = ({ children, ...rest }: ChallengesPr
   },[])
 
   useEffect(() => {
-    singIn(user.username).then(() => {
-      const formattedUser = {
-        level,
-        currentExperience,
-        challengesCompleted,
-        ...user,
-      }
-      Cookies.set("user", JSON.stringify(formattedUser))
+    const formattedUser = {
+      level,
+      currentExperience,
+      challengesCompleted,
+      username: rest?.username || '',
+      name: rest?.name || '',
+      avatar_url: rest?.avatar_url || '',
+    }
+
+    updateUser( rest?.username ,formattedUser ).then(({ value }) => {
+      Cookies.set("user", JSON.stringify(value))
     })
-  },[level, currentExperience, challengesCompleted, user])
+
+  },[level, currentExperience, challengesCompleted])
 
   function levelUp() {
     setLevel(level + 1);

@@ -72,5 +72,15 @@ export const Container = styled.nav`
     svg {
       width: 2.2rem;
     }
+
+    > div {
+      display: flex;
+      align-items:center;
+
+      a:last-child{
+        margin-left: 16px;
+        margin-top: 0;
+      }
+    }
   }
 `;

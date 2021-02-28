@@ -29,12 +29,12 @@ export const SideBar: React.FC = () => {
 
       
       <div>
-        <Link href={'/'}>
+        <Link href={'/home'}>
           <a>
             <FiHome size={30} />
           </a>
         </Link>
-        <Link href={'/gabrielpdev'}>
+        <Link href={'/leaderboard'}>
           <a>
             <FiAward size={30} />
           </a>

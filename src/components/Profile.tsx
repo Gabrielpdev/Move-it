@@ -1,17 +1,22 @@
-import Link from 'next/link';
+import { useRouter } from 'next/router'
 import { Container } from '../styles/components/Profile'
 import { FiLogOut } from "react-icons/fi";
-import { useProvider } from '../contexts/ChallengesContext';
 import { useSession } from '../contexts/SessionContext';
 
 interface IUserGithub {
   name: string
+  level: number
   avatar_url: string
 }
 
 export default function Profile(user: IUserGithub)  {
-  const { level } = useProvider();
   const { singOut } = useSession();
+  const { push } = useRouter();
+
+  async function handleSignout(){
+    await singOut()
+    push(`/`);
+  }
 
   return (
     <Container>
@@ -21,11 +26,11 @@ export default function Profile(user: IUserGithub)  {
         <strong>{user?.name}</strong>
         <p>
           <img src="icons/level.svg" alt="Level"/>
-          Level {level}
+          Level {user?.level}
         </p>
       </div>
       
-      <button type='button' onClick={() => singOut()}>
+      <button type='button' onClick={handleSignout}>
         <FiLogOut size={40} />  
       </button>
     </Container>
