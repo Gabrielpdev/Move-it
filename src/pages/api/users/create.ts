@@ -24,13 +24,19 @@ async function connectToDatabase(uri: string){
 }
 
 export default async function CreateUser(req: NowRequest, res: NowResponse){
-  const { data } = req.body;
+  try{
+    const { data } = req.body;
 
-  const db = await connectToDatabase(process.env.MONOGODB_URL);
+    const db = await connectToDatabase(process.env.MONOGODB_URL);
 
-  const collection = db.collection('data')
+    const collection = db.collection('data')
 
-  await collection.insertOne( data )
+    const { ops } = await collection.insertOne( data )
 
-  return res.status(201).json({message: "User created"});
+    return res.status(201).json(ops[0]);
+  }catch(err){
+    return res.status(400).json({
+      message: err.message || "Unexpected error."
+    })
+  }
 }

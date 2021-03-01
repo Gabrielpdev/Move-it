@@ -1,4 +1,5 @@
-import React from 'react'
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react'
 import useSound from 'use-sound'
 import Link from 'next/link';
 
@@ -11,8 +12,13 @@ import turnOnSound from '../../public/sounds/turn-on.mp3';
 import turnOffSound from '../../public/sounds/turn-off.mp3';
 
 export const SideBar: React.FC = () => {
+  const { route } = useRouter();
   const { ToggleTheme, theme } = useTheme();
   const [play] = useSound(theme.title === 'dark' ? turnOffSound : turnOnSound)
+
+  useEffect(() => {
+    console.log(route.includes('home'))
+  },[])
 
   function handleClick(){
     ToggleTheme()
@@ -28,18 +34,18 @@ export const SideBar: React.FC = () => {
       </svg>
 
       
-      <div>
+      <nav>
         <Link href={'/home'}>
-          <a>
+          <a className={route.includes('home') && "active"}>
             <FiHome size={30} />
           </a>
         </Link>
         <Link href={'/leaderboard'}>
-          <a>
+          <a className={route.includes('leaderboard') && "active"}>
             <FiAward size={30} />
           </a>
         </Link>
-      </div>
+      </nav>
       
       <button type="button" onClick={handleClick}>
         {theme.title === 'light' ? <FiMoon size={30} /> : <FiSun size={30} />}

@@ -14,6 +14,7 @@ import { CountDownProvider } from '../contexts/CountDownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 
 import { Container, LeftSide, RightSide } from '../styles/pages/home'
+import { useSession } from '../contexts/SessionContext';
 interface IProps {
   username: string
   name: string
@@ -53,7 +54,7 @@ const Home: React.FC<IProps> = (props) => {
 
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const {user} =  await ctx.req.cookies;
+  const { user } =  await ctx.req.cookies;
 
   if (!user) {
     if(typeof window === 'undefined'){
@@ -62,8 +63,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     }else{
       Router.push('/')
     }
+    return {
+      props: {}
+    }
   }else{
     const userFormatted = JSON.parse(user)
+     
     return {
       props: {
         ...userFormatted

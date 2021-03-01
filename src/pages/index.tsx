@@ -32,7 +32,6 @@ const Index: React.FC = () => {
     e.preventDefault();
     if(username){
       await singIn(username)
-      Router.push(`/home`);
     }
   }
 
@@ -82,8 +81,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     }else{
       Router.push('/home')
     }
+    return { props: {} }
   }else{
-    return { props: null }
+    return { props: {} }
   };
 }
 

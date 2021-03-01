@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { createContext, useCallback, useContext, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
@@ -26,6 +27,7 @@ interface SessionContextData {
 export const SessionContext = createContext({} as SessionContextData);
 
 export const SessionProvider: React.FC = ({ children }) => { 
+  const route = useRouter();
   const [ user, setUser ] = useState();
 
   const checkIfUserExists = useCallback( async (username) => {
@@ -46,19 +48,23 @@ export const SessionProvider: React.FC = ({ children }) => {
     try{
       const response = await fetch(`https://api.github.com/users/${username}`);
       const userData = await response.json();
-  
-      const { data } = await axios.post('/api/users/create', { 
-        data: {
-          username,
-          name: userData.name,
-          avatar_url: userData.avatar_url,
-          level: 1,
-          currentExperience: 0,
-          challengesCompleted: 0,
-        }  
-      })
 
-      return data;
+      if(userData.name){
+        const { data } = await axios.post('/api/users/create', { 
+          data: {
+            username,
+            name: userData.name,
+            avatar_url: userData.avatar_url,
+            level: 1,
+            currentExperience: 0,
+            challengesCompleted: 0,
+          }  
+        })
+
+        return data;
+      }else{
+        throw new Error("Github username não existe")
+      }
     }catch(err){
       console.log(err)
     }
@@ -78,28 +84,25 @@ export const SessionProvider: React.FC = ({ children }) => {
   }, [])
 
   const singIn = useCallback( async (username) => {
-    try{
-      const userExists = await checkIfUserExists(username)
-
-      if(!userExists){
-        const { data } = await createUser(username)
+    const userExists = await checkIfUserExists(username)
+    
+    if(!userExists){
+      const data = await createUser(username)
       
-        setUser(data)
-        Cookies.set("user", JSON.stringify(data))
-      }else {
-        setUser(userExists)
-        Cookies.set("user", JSON.stringify(userExists))
-      }
-     
-    }catch(err){
-      console.log(err)
+      setUser(data)
+      Cookies.set("user", JSON.stringify(data))
+      route.push(`/home`);
+    }else {
+      setUser(userExists)
+      Cookies.set("user", JSON.stringify(userExists))
+      route.push(`/home`);
     }
   }, [])
 
   const singOut = useCallback( async () => {
     setUser(null)
     Cookies.set("user", '')
-    console.log('cookie bull')
+    route.push(`/`);
   }, [])
 
   return (

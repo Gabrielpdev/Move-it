@@ -22,7 +22,7 @@ export const Container = styled.nav`
     }
   }
 
-  > div  a{
+  > nav  a{
     display: flex;
     cursor: pointer;
     position: relative;
@@ -32,12 +32,14 @@ export const Container = styled.nav`
     }
 
     &.active{
+      color: ${({ theme }) => theme.colors.logoColor};
+
       &::before{
         content: "";
         background: ${({ theme }) => theme.colors.logoColor};
         border-radius: 0px 5px 5px 0px;
         position: absolute;
-        left: -1.2rem;
+        left: -2rem;
         width: 4px;
         height: 100%;
 

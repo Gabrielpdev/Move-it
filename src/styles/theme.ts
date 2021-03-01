@@ -25,6 +25,7 @@ export const light = {
     logoColor: '#5965e0',
     inputBackground: '#4953b8',
     inputBackgroundFinish: 'rgba(73, 83, 184, 0.2)',
+    hightLightTable: '#5965E0',
   }
 }
 
@@ -55,5 +56,6 @@ export const dark = {
     logoColor: '#fff',
     inputBackground: 'rgba( 255, 255, 255, 0.45)',
     inputBackgroundFinish: 'transparent',
+    hightLightTable: '#929eaa',
   },
 }

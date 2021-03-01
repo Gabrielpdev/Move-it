@@ -63,9 +63,11 @@ export const ChallengesProvider: React.FC = ({ children, ...rest }: ChallengesPr
       avatar_url: rest?.avatar_url || '',
     }
 
-    updateUser( rest?.username ,formattedUser ).then(({ value }) => {
-      Cookies.set("user", JSON.stringify(value))
-    })
+    if(rest.username){
+      updateUser( rest.username ,formattedUser ).then(({ value }) => {
+        Cookies.set("user", JSON.stringify(value))
+      })
+    }
 
   },[level, currentExperience, challengesCompleted])
 

@@ -24,17 +24,23 @@ async function connectToDatabase(uri: string){
 }
 
 export default async function UpdateUser(req: NowRequest, res: NowResponse){
-  const { username, data } = req.body;
+  try{
+    const { username, data } = req.body;
 
-  const db = await connectToDatabase(process.env.MONOGODB_URL);
+    const db = await connectToDatabase(process.env.MONOGODB_URL);
 
-  const collection = db.collection('data')
-  
-  const user = await collection.findOneAndUpdate(
-    { username },
-    { $set: data },
-    { returnOriginal: false },
-  );
-  
-  return res.status(200).json(user);
+    const collection = db.collection('data')
+    
+    const user = await collection.findOneAndUpdate(
+      { username },
+      { $set: data },
+      { returnOriginal: false },
+    );
+    
+    return res.status(200).json(user);
+  }catch(err){
+    return res.status(400).json({
+      message: err.message || "Unexpected error."
+    })
+  }
 }
