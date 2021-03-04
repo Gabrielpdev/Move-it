@@ -23,21 +23,24 @@ async function connectToDatabase(uri: string){
   return db;
 }
 
-export default async function SearchUser(req: NowRequest, res: NowResponse){
-  const { username } = req.query;
-
+export default async (req: NowRequest, res: NowResponse) => {
   try{
     const db = await connectToDatabase(process.env.MONOGODB_URL);
   
     const collection = db.collection('data')
   
-    const userExists = await collection.findOne({ username })
-    
-    if(userExists){
-      return res.status(200).json(userExists);
+    const myCursor = collection.find().sort( { level: -1 } );
+
+    let users = []
+    await myCursor.forEach((item) => {
+      users = [...users, item]
+    });
+
+    if(users){
+      return res.status(200).json(users);
     }
-  
     return res.status(204).json({ message : "user does not exist"});
+  
   }catch(err){
     return res.status(400).json({
       message: err.message || "Unexpected error."

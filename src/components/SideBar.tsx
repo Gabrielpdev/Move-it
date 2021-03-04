@@ -16,10 +16,6 @@ export const SideBar: React.FC = () => {
   const { ToggleTheme, theme } = useTheme();
   const [play] = useSound(theme.title === 'dark' ? turnOffSound : turnOnSound)
 
-  useEffect(() => {
-    console.log(route.includes('home'))
-  },[])
-
   function handleClick(){
     ToggleTheme()
     play()

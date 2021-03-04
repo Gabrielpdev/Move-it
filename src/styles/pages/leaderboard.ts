@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.nav`
+export const Container = styled.div`
   height: 100vh;
-  width: 100vw;
+  /* width: 100vw; */
   /* margin: 0 auto; */
+  overflow-x: hidden;
   padding: 2.5rem 2rem;
 
   display: flex;
@@ -56,10 +57,15 @@ export const Container = styled.nav`
 
         tr{
           border-radius: 5px;
+
+          th:first-child{
+            font-weight: 500;
+            font-size: 18px;
+          }
         }
 
         th {
-          padding: 16px 24px;
+          padding: 16px;
 
           >span{
             font-style: normal;

@@ -58,6 +58,7 @@ export const SessionProvider: React.FC = ({ children }) => {
             level: 1,
             currentExperience: 0,
             challengesCompleted: 0,
+            active: true
           }  
         })
 
