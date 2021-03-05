@@ -25,6 +25,7 @@ export const Container = styled.header`
 
     span {
       position: absolute;
+      width: max-content;
       top: 12px;
       transform: translateX( -50% );
     }

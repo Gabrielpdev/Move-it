@@ -30,7 +30,7 @@ const Leaderboard: React.FC = () => {
           Leaderboard
         </h2>
 
-        {!loading ? <Loading /> : (
+        {loading ? <Loading /> : (
           <table>
             <thead>
               <tr>

@@ -39,7 +39,7 @@ export const Container = styled.nav`
         background: ${({ theme }) => theme.colors.logoColor};
         border-radius: 0px 5px 5px 0px;
         position: absolute;
-        left: -2rem;
+        left: -1.24rem;
         width: 4px;
         height: 100%;
 
