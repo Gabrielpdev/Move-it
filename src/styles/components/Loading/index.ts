@@ -10,10 +10,15 @@ export const Container = styled.div`
     }
   };
   
+  /* section >div{
+    display: flex;
+  } */
+
   table{
-    width: 960px;
     border-spacing: 0 8px;
     border-radius: 5px;
+    min-width: 650px;
+    width: 100%;
 
     div, span, img, strong{
       background: linear-gradient(
@@ -79,6 +84,8 @@ export const Container = styled.div`
             animation: teste 1.2s ease-in-out infinite;
             content:"";
             height: 20px;
+            top: 50%;
+            left: 50%;
             width: 100px;
             display: flex;
             position: absolute;
