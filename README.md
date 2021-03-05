@@ -46,7 +46,7 @@ que ao ser realizada, o usuário ganha experiência, subindo seu level<br/>
 
 <span align="center">
 	<h2>Demo</h2>
-  <img alt="Move-it-demo" title="#Move-it-demo" src=".github/demo.gif" width="550px" />
+  <img alt="Move-it-demo" title="#Move-it-demo" src=".github/demo.gif" width="950px" />
   <a href="https://Move-it-gabrielpdev.vercel.app/">Link</a>
 </span>
 
