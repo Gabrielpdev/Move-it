@@ -46,6 +46,7 @@ que ao ser realizada, o usuário ganha experiência, subindo seu level<br/>
 
 <span align="center">
 	<h2>Demo</h2>
+  <img alt="Move-it-demo" title="#Move-it-demo" src=".github/demo.gif" width="550px" />
   <a href="https://Move-it-gabrielpdev.vercel.app/">Link</a>
 </span>
 
@@ -66,9 +67,12 @@ $ yarn start
 ## ⛏️ Tecnologias Utilizadas <a name = "built_using"></a>
 
 As seguintes ferramentas foram usadas na construção do projeto:
+- 🌱 [MongoDB][mongodb]
 - 🔵 [TypeScript][typescript]
 - ⚛️ [React][reactjs]
 - 🔼 [NextJs][next]
+- ⏺ [Framer Motion][framermotion]
+- 🍪 [JavaScript Cookie][jscookie]
 - 💅 [Styled-components][styled-components]
 
 ## 🤔 Como contribuir <a name = "contribute"></a>
@@ -80,6 +84,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 Feito com ❤️ por Gabriel Pereira 👋🏽 [Entre em contato!](https://www.linkedin.com/in/gabriel-pereira-oliveira-78b1801ab/)
 
+[jscookie]: https://github.com/js-cookie/js-cookie
+[mongodb]: https://www.mongodb.com
+[framermotion]: https://www.framer.com/motion/
 [next]: https://nextjs.org/
 [typescript]: https://www.typescriptlang.org/
 [reactjs]: https://reactjs.org
