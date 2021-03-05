@@ -85,4 +85,26 @@ export const Container = styled.nav`
       }
     }
   }
+
+  @media (max-width: 800px){    
+   >nav{
+     display: flex;
+     align-items:center;
+
+    a {
+      margin-left: 16px;
+
+      &.active::before{
+        content: "";
+        top: -26px;
+        left: 13px;
+        transform: rotate(90deg);
+      }
+
+      &:not(:first-child){
+        margin-top: 0px;
+      }
+    }
+   }
+  }
 `;

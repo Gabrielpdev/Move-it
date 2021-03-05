@@ -13,8 +13,7 @@ export const Container = styled.div`
   background-color: ${({theme}) => theme.colors.background };
 
   section {
-    max-width: 992px;
-    margin: 0 auto;
+    margin: 0 25px;
     flex: 1;
     display: flex;
     align-content: center;
@@ -32,10 +31,10 @@ export const Container = styled.div`
     }
 
     table{
-      width: 960px;
       border-spacing: 0 8px;
       border-radius: 5px;
-
+      min-width: 650px;
+      
       .separator{
         height: 24px;
       }
@@ -131,6 +130,12 @@ export const Container = styled.div`
           }
         }
       }
+    }
+
+    @media (max-width: 800px){    
+      margin: 0 10px;
+      padding-left: 0px;
+      overflow-x: scroll;
     }
   } 
 `;
